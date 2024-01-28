@@ -1,0 +1,31 @@
+{
+    "personalInfo": {
+        "name": "Utsav",
+        "email": "sas@gmail.com",
+        "phone": "4343432423",
+        "languages": [
+            "english"
+        ]
+    },
+    "workExperience": [
+        {
+            "companyName": "compamy1",
+            "startDate": "2024-01-10",
+            "endDate": "2024-01-23",
+            "role": "engineer"
+        }
+    ],
+    "education": [
+        {
+            "institutionName": "university",
+            "degree": "btech",
+            "date": "2024-01-11"
+        }
+    ],
+    "skills": [
+        {
+            "skill": "java",
+            "skillLevel": "advanced"
+        }
+    ]
+}

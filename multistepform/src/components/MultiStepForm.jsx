@@ -48,32 +48,16 @@ const MultiStepForm = () => {
     const stepperClick = (step, formik,currentStep)=>{
         const errors = formik.errors;
         console.log(errors);
-        console.log('currentStep---',currentStep);
-        console.log('step---', step);
-        console.log('errors.workExperience--',errors.workExperience)
-        
-        let setp1Errors= ((errors.personalInfo || formik.values.personalInfo.name===''));
-        let setp2Errors= ((errors.workExperience  || formik.values.workExperience.length === 0 || 
-            (formik.values.workExperience[0] == formik.initialValues.workExperience[0])));
-        let setp3Errors= ((errors.education || formik.values.education.length === 0 || formik.values.education[0] == formik.initialValues.education[0]));
-        let setp4Errors= ((Object.keys(formik.errors).length > 0 || formik.values.skills.length === 0 || (formik.values.skills[0] === formik.initialValues.skills[0])));
-
-
-        console.log('step1', setp1Errors)
-        console.log('step2', setp2Errors)
-        console.log('step3', setp3Errors)
-        console.log('step4', setp4Errors)
-
+        console.log(step);
+        console.log(currentStep);
         if(currentStep>step){
             setCurrentStep(step)
         }
-
         else if(
-            
-            ((setp1Errors && step == 0 ) 
-            || ((setp1Errors || setp2Errors) && step == 1)
-            || ( (setp1Errors || setp2Errors || setp3Errors) && step == 2)
-            || ((setp1Errors || setp2Errors || setp3Errors ||setp4Errors) && step === 3)
+            (((errors.personalInfo || formik.values.personalInfo.name==='') && currentStep === 0 ) 
+            || ((errors.workExperience || formik.values.workExperience.length === 0 || formik.values.workExperience[0] == formik.initialValues.workExperience[0]) && currentStep === 1)
+            || ((errors.education || formik.values.education.length === 0 || formik.values.education[0] == formik.initialValues.education[0]) && currentStep === 2)
+            || ((Object.keys(formik.errors).length > 0 || formik.values.skills.length === 0 || (formik.values.skills[0] === formik.initialValues.skills[0])) && currentStep === 3)
             )
             ){
             console.log('disabled move!')
